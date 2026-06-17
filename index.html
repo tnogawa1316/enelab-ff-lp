@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>エネラボ FFホームプラン｜基本料金が半額に。シンプルな電力プラン</title>
+<style>
+  :root {
+    --orange: #FF8C00;
+    --orange-light: #FFA733;
+    --orange-pale: #FFF3E0;
+    --yellow: #FFD700;
+    --yellow-light: #FFF9C4;
+    --navy: #1A1A2E;
+    --navy-mid: #2C2C4E;
+    --gray: #666;
+    --gray-light: #F5F5F5;
+    --white: #FFFFFF;
+    --warm-bg: #FFF8EE;
+    --red-warn: #D32F2F;
+    --green: #2E7D32;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(255,140,0,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    line-height: 1.7;
+  }
+
+  /* ======= HEADER ======= */
+  header {
+    background: var(--white);
+    border-bottom: 3px solid var(--orange);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-badge {
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+    color: white;
+    font-weight: 800;
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    letter-spacing: 0.05em;
+  }
+  .logo-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .header-phone {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 3px 12px rgba(255,140,0,0.35);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,140,0,0.45);
+  }
+
+  /* ======= HERO ======= */
+  .hero {
+    background: linear-gradient(160deg, var(--warm-bg) 0%, #FFF3CD 50%, #FFE8B2 100%);
+    padding: 64px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,215,0,0.25) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,140,0,0.15) 0%, transparent 70%);
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 5px 16px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 6vw, 52px);
+    font-weight: 900;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    color: var(--navy);
+  }
+  .hero h1 .highlight {
+    color: var(--orange);
+    position: relative;
+    display: inline-block;
+  }
+  .hero h1 .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--yellow);
+    opacity: 0.5;
+    border-radius: 3px;
+    z-index: -1;
+  }
+  .hero-sub {
+    font-size: clamp(15px, 2.5vw, 18px);
+    color: var(--gray);
+    margin-bottom: 40px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Big number animation */
+  .hero-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .hero-stat {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px 28px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--orange);
+    text-align: center;
+    min-width: 150px;
+  }
+  .hero-stat-num {
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+    display: block;
+  }
+  .hero-stat-label {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+  .hero-stat-sub {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-large {
+    padding: 16px 36px;
+    font-size: 17px;
+    border-radius: 50px;
+  }
+  .btn-secondary {
+    background: white;
+    color: var(--orange);
+    border: 2px solid var(--orange);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover {
+    background: var(--orange-pale);
+  }
+
+  /* Sun illustration */
+  .sun-wrap {
+    position: absolute;
+    top: 20px;
+    right: 5%;
+    opacity: 0.18;
+    animation: spin-slow 30s linear infinite;
+  }
+  @keyframes spin-slow { to { transform: rotate(360deg); } }
+
+  /* ======= SECTIONS ======= */
+  section { padding: 72px 24px; }
+
+  .container { max-width: 900px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 16px;
+    color: var(--gray);
+    max-width: 600px;
+    margin-bottom: 48px;
+  }
+  .section-bg-warm { background: var(--warm-bg); }
+  .section-bg-navy { background: var(--navy); color: white; }
+
+  /* ======= TARGET ======= */
+  .target-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .target-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-left: 4px solid var(--orange);
+    transition: transform 0.2s;
+  }
+  .target-card:hover { transform: translateY(-3px); }
+  .target-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .target-card p {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+
+  /* ======= BENEFITS ======= */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+  .benefit-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .benefit-card:hover { transform: translateY(-4px); }
+  .benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--orange), var(--yellow));
+  }
+  .benefit-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+  .benefit-icon-wrap {
+    width: 72px;
+    height: 72px;
+    background: var(--orange-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 34px;
+  }
+  .benefit-card h3 {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: var(--navy);
+  }
+  .benefit-card h3 span {
+    color: var(--orange);
+  }
+  .benefit-card p {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  /* ======= PRICE COMPARISON ======= */
+  .compare-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    max-width: 780px;
+    margin: 0 auto 32px;
+  }
+  .compare-card {
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .compare-card.old {
+    background: #F5F5F5;
+    border: 2px solid #DDD;
+  }
+  .compare-card.new-plan {
+    background: linear-gradient(160deg, var(--orange-pale), #FFF3CD);
+    border: 3px solid var(--orange);
+    box-shadow: 0 6px 28px rgba(255,140,0,0.22);
+    position: relative;
+  }
+  .compare-card.new-plan::before {
+    content: 'おすすめ ✨';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 50px;
+    white-space: nowrap;
+  }
+  .compare-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+  .compare-card.new-plan .compare-label {
+    color: var(--orange);
+    font-size: 14px;
+  }
+  .compare-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 14px;
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row-key { color: var(--gray); }
+  .compare-row-val { font-weight: 700; color: var(--navy); }
+  .compare-row-val.saving { color: var(--orange); }
+  .compare-total-label { font-size: 12px; color: var(--gray); margin-top: 12px; }
+  .compare-total-val {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .compare-total-val.saving { color: var(--orange); }
+  .compare-vs {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--gray);
+    text-align: center;
+  }
+  .compare-saving-banner {
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+    color: white;
+    border-radius: var(--radius);
+    padding: 20px 28px;
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+    font-weight: 700;
+  }
+  .compare-saving-banner .big { font-size: 32px; }
+  .compare-note {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 16px;
+    text-align: center;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ======= AREA TABLE ======= */
+  .area-table-wrap { overflow-x: auto; }
+  .area-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  }
+  .area-table th {
+    background: var(--navy);
+    color: white;
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 11px;
+  }
+  .area-table td {
+    padding: 9px 8px;
+    text-align: center;
+    border-bottom: 1px solid #EEE;
+    background: white;
+  }
+  .area-table tr:last-child td { border-bottom: none; }
+  .area-table tr:nth-child(even) td { background: var(--warm-bg); }
+  .area-table .area-name { font-weight: 700; text-align: left; }
+  .area-table .highlight-row td { background: #FFF3E0; }
+  .area-caption {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  /* ======= WARNING ======= */
+  .warning-box {
+    background: #FFF3F3;
+    border: 2px solid #FFCDD2;
+    border-radius: var(--radius);
+    padding: 28px 28px;
+    margin-bottom: 20px;
+  }
+  .warning-box h3 {
+    color: var(--red-warn);
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .warning-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .warning-box ul li {
+    font-size: 14px;
+    color: #444;
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .warning-box ul li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--red-warn);
+    font-size: 10px;
+    top: 9px;
+  }
+
+  /* ======= FLOW ======= */
+  .flow-steps {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .flow-step {
+    flex: 1;
+    min-width: 200px;
+    max-width: 260px;
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    position: relative;
+  }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    color: var(--orange);
+    font-size: 28px;
+    font-weight: 900;
+  }
+  .flow-badge {
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .flow-step h3 {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .flow-step p {
+    font-size: 13px;
+    color: var(--gray);
+  }
+  .flow-step-icon { font-size: 36px; margin-bottom: 10px; }
+  .flow-complete {
+    background: linear-gradient(135deg, var(--green), #43A047);
+    color: white;
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    max-width: 260px;
+  }
+  .flow-complete h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+  .flow-complete p { font-size: 13px; opacity: 0.9; }
+
+  /* ======= CONTACT ======= */
+  .contact-section {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 24px;
+  }
+  .contact-section .section-title { color: white; }
+  .contact-cards {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    min-width: 260px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .contact-card:hover { background: rgba(255,255,255,0.14); }
+  .contact-card-icon { font-size: 40px; margin-bottom: 12px; }
+  .contact-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; opacity: 0.8; }
+  .contact-card .contact-value {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1.2;
+    word-break: break-all;
+  }
+  .contact-card .contact-hours {
+    font-size: 13px;
+    opacity: 0.65;
+    margin-top: 8px;
+  }
+  .contact-card a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* ======= COMPANY INFO ======= */
+  .company-bar {
+    background: #F5F5F5;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.8;
+  }
+
+  /* ======= FOOTER ======= */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 20px 24px;
+    font-size: 12px;
+  }
+
+  /* ======= FLOATING CTA ======= */
+  .float-cta {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  .float-btn {
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 20px rgba(255,140,0,0.45);
+    transition: transform 0.2s;
+    white-space: nowrap;
+  }
+  .float-btn:hover { transform: translateY(-2px); }
+
+  /* ======= ANIMATIONS ======= */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.6s ease both; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+
+  /* ======= RESPONSIVE ======= */
+  @media (max-width: 768px) {
+    section { padding: 52px 16px; }
+    .container { padding: 0; }
+
+    /* Header */
+    header { padding: 10px 16px; }
+    .logo-name { font-size: 13px; }
+    .header-phone { display: none; }
+    .btn-primary { padding: 8px 14px; font-size: 13px; }
+
+    /* Hero */
+    .hero { padding: 48px 16px 60px; }
+    .sun-wrap { display: none; }
+    .hero-numbers {
+      gap: 12px;
+    }
+    .hero-stat {
+      min-width: 130px;
+      padding: 14px 16px;
+    }
+    .hero-stat-num { font-size: 34px; }
+    .hero-cta-group { flex-direction: column; align-items: center; }
+    .btn-large { width: 100%; max-width: 320px; text-align: center; }
+    .btn-secondary { width: 100%; max-width: 320px; text-align: center; }
+
+    /* Section titles / desc */
+    .section-title { font-size: 22px; }
+    .section-desc { font-size: 14px; margin-bottom: 32px; }
+
+    /* Target cards */
+    .target-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    /* Benefits */
+    .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    /* Compare */
+    .compare-wrap { grid-template-columns: 1fr; gap: 24px; }
+    .compare-vs { display: none; }
+    .compare-card.new-plan { margin-top: 16px; }
+
+    /* Area tables */
+    .area-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .area-table { min-width: 700px; font-size: 11px; }
+    .area-table th { padding: 8px 6px; font-size: 10px; }
+    .area-table td { padding: 7px 6px; }
+
+    /* Flow */
+    .flow-steps { flex-direction: column; align-items: center; gap: 16px; }
+    .flow-arrow { display: none; }
+    .flow-step, .flow-complete { width: 100%; max-width: 100%; }
+
+    /* Contact */
+    .contact-cards { flex-direction: column; }
+    .contact-card { width: 100%; min-width: unset; }
+
+    /* Floating CTA */
+    .float-cta {
+      bottom: 12px;
+      right: 12px;
+      left: 12px;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .float-btn {
+      flex: 1;
+      justify-content: center;
+      font-size: 15px;
+      padding: 14px 12px;
+    }
+
+    /* Compare structure box */
+    .compare-structure-box { flex-direction: column; }
+  }
+
+  @media (max-width: 768px) {
+    .scroll-hint { display: block !important; text-align: center; }
+  }
+
+  @media (max-width: 400px) {
+    .hero-numbers { gap: 8px; }
+    .hero-stat { min-width: 100px; padding: 12px 10px; }
+    .hero-stat-num { font-size: 28px; }
+    .hero-stat-label { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <span class="logo-badge">enelab</span>
+    <span class="logo-name">エネラボ株式会社</span>
+  </div>
+  <div class="header-cta">
+    <a href="tel:0671774931" class="header-phone">📞 06-7177-4931</a>
+    <a href="#contact" class="btn-primary">無料相談する</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- decorative sun -->
+  <div class="sun-wrap">
+    <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="110" cy="110" r="50" fill="#FF8C00"/>
+      <g stroke="#FF8C00" stroke-width="8" stroke-linecap="round">
+        <line x1="110" y1="10" x2="110" y2="40"/>
+        <line x1="110" y1="180" x2="110" y2="210"/>
+        <line x1="10" y1="110" x2="40" y2="110"/>
+        <line x1="180" y1="110" x2="210" y2="110"/>
+        <line x1="38" y1="38" x2="59" y2="59"/>
+        <line x1="161" y1="161" x2="182" y2="182"/>
+        <line x1="182" y1="38" x2="161" y2="59"/>
+        <line x1="59" y1="161" x2="38" y2="182"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="container">
+    <span class="hero-eyebrow fade-up">Free &amp; Flat — 電気料金の新常識</span>
+    <h1 class="fade-up delay-1">
+      毎月の電気代、<br>
+      もっと<span class="highlight">シンプル</span>にできます。
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      基本料金が半額、単価はひとつだけ。縛りなし、解約金なし。家族みんなが安心できる電力プランです。
+    </p>
+
+    <div class="hero-numbers fade-up delay-2">
+      <div class="hero-stat">
+        <span class="hero-stat-num">½</span>
+        <div class="hero-stat-label">基本料金が半額に</div>
+        <div class="hero-stat-sub">毎月必ず節約できる</div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">1</span>
+        <div class="hero-stat-label">単価はひとつだけ</div>
+        <div class="hero-stat-sub">複雑な段階制なし</div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">¥0</span>
+        <div class="hero-stat-label">解約金・違約金</div>
+        <div class="hero-stat-sub">いつでもやめられる</div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">9</span>
+        <div class="hero-stat-label">対応エリア</div>
+        <div class="hero-stat-sub">全国どこでも</div>
+      </div>
+    </div>
+
+    <div class="hero-cta-group fade-up delay-3">
+      <a href="#contact" class="btn-primary btn-large">📞 まずは無料相談</a>
+      <a href="#compare" class="btn-secondary">料金シミュレーションを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section class="section-bg-warm">
+  <div class="container">
+    <p class="section-eyebrow">こんな方におすすめ</p>
+    <h2 class="section-title">「電気代、もったいないな」と感じたことはありませんか？</h2>
+    <p class="section-desc">FFホームプランは、毎月の電気代をわかりやすく・シンプルに整理したい方のためのプランです。</p>
+    <div class="target-grid">
+      <div class="target-card">
+        <span class="target-icon">😵</span>
+        <p>毎月の電気代が複雑でよくわからない方</p>
+      </div>
+      <div class="target-card">
+        <span class="target-icon">💸</span>
+        <p>基本料金がもったいないと感じている方</p>
+      </div>
+      <div class="target-card">
+        <span class="target-icon">📅</span>
+        <p>長期縛りなく、気軽に試したい方</p>
+      </div>
+      <div class="target-card">
+        <span class="target-icon">🏠</span>
+        <p>シンプルで長く安心して使えるプランを探している方</p>
+      </div>
+      <div class="target-card">
+        <span class="target-icon">💡</span>
+        <p>無駄なくスマートに節約したい方</p>
+      </div>
+      <div class="target-card">
+        <span class="target-icon">👨‍👩‍👧</span>
+        <p>家族みんなで納得できる電気プランを選びたい方</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section>
+  <div class="container">
+    <p class="section-eyebrow">3つの特徴</p>
+    <h2 class="section-title">FFホームプランが選ばれる理由</h2>
+    <p class="section-desc">「Free &amp; Flat」の名の通り、縛りなし・一律単価で毎月の電気代を家計にやさしく。</p>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <p class="benefit-num">BENEFIT 01</p>
+        <div class="benefit-icon-wrap">🏷️</div>
+        <h3>基本料金が<span>「半額」</span></h3>
+        <p>毎月必ずかかる固定の基本料金を半額に抑えます。使う・使わないに関わらず発生するコストを、まず削減。</p>
+      </div>
+      <div class="benefit-card">
+        <p class="benefit-num">BENEFIT 02</p>
+        <div class="benefit-icon-wrap">📊</div>
+        <h3>単価は<span>「ひとつ」</span>だけ</h3>
+        <p>使う量によって単価が上がる複雑な段階制料金はありません。いつ使っても、何kWh使っても一律単価でシンプル。</p>
+      </div>
+      <div class="benefit-card">
+        <p class="benefit-num">BENEFIT 03</p>
+        <div class="benefit-icon-wrap">🔓</div>
+        <h3>解約金・<span>縛りなし</span></h3>
+        <p>契約期間の縛りも、解約金もいっさいありません。「まず試してみる」ができる、安心のプランです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE COMPARE -->
+<section id="compare" class="section-bg-warm">
+  <div class="container">
+    <p class="section-eyebrow">料金比較シミュレーション</p>
+    <h2 class="section-title">料金の構造を比べてみましょう</h2>
+    <p class="section-desc">東京エリア・従量電灯B（40A）・月間使用量400kWhを例に、料金の内訳を並べました。</p>
+
+    <div class="compare-wrap">
+      <!-- OLD -->
+      <div class="compare-card old">
+        <p class="compare-label">従来の従量電灯B</p>
+        <div class="compare-row">
+          <span class="compare-row-key">基本料金</span>
+          <span class="compare-row-val">¥1,247</span>
+        </div>
+        <div class="compare-row">
+          <span class="compare-row-key">電力量料金<br><small style="font-size:10px;font-weight:400;color:#888">3段階制・使うほど単価UP</small></span>
+          <span class="compare-row-val">¥14,177</span>
+        </div>
+        <div class="compare-row" style="opacity:0.4;">
+          <span class="compare-row-key">供給管理単価</span>
+          <span class="compare-row-val">—</span>
+        </div>
+        <p class="compare-total-label" style="margin-top:16px">小計（税込目安）</p>
+        <p class="compare-total-val">¥15,424</p>
+        <p style="font-size:11px;color:#999;margin-top:6px">＋ 燃料費調整額・再エネ賦課金</p>
+      </div>
+
+      <div class="compare-vs">→</div>
+
+      <!-- NEW -->
+      <div class="compare-card new-plan">
+        <p class="compare-label">エネラボ FFホームプラン</p>
+        <div class="compare-row">
+          <span class="compare-row-key">基本料金</span>
+          <span class="compare-row-val saving">¥623</span>
+        </div>
+        <div class="compare-row">
+          <span class="compare-row-key">電力量料金<br><small style="font-size:10px;font-weight:400;color:#888">一律単価・何kWhでも同じ</small></span>
+          <span class="compare-row-val saving">¥10,720</span>
+        </div>
+        <div class="compare-row">
+          <span class="compare-row-key">供給管理単価<br><small style="font-size:10px;font-weight:400;color:#888">3.00円/kWh（税込）× 400kWh</small></span>
+          <span class="compare-row-val" style="color:var(--navy);">¥1,200</span>
+        </div>
+        <p class="compare-total-label" style="margin-top:16px">小計（税込目安）</p>
+        <p class="compare-total-val saving">¥12,543</p>
+        <p style="font-size:11px;color:#999;margin-top:6px">＋ 電源調達調整額（市場連動）・再エネ賦課金</p>
+      </div>
+    </div>
+
+    <!-- 構造差フォーカスボックス（断言なし） -->
+    <div style="background:white;border:2px solid var(--orange);border-radius:var(--radius);padding:22px 28px;max-width:780px;margin:0 auto 16px;display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;">
+      <div style="flex:1;min-width:200px;">
+        <p style="font-size:12px;font-weight:700;color:var(--orange);margin-bottom:8px;">📌 このプランの構造上のポイント</p>
+        <ul style="list-style:none;padding:0;font-size:14px;color:var(--navy);line-height:2;">
+          <li>✅ 基本料金は従来の <strong>約半額</strong>（¥1,247 → ¥623）</li>
+          <li>✅ 電力量単価は <strong>一律26.80円/kWh</strong>（段階制なし）</li>
+          <li>⚠️ 電源調達調整額は市場価格に連動し、<strong>上限なし</strong></li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:180px;background:var(--warm-bg);border-radius:10px;padding:14px 16px;">
+        <p style="font-size:12px;color:var(--gray);margin-bottom:4px;">小計ベースの差額（参考）</p>
+        <p style="font-size:26px;font-weight:900;color:var(--navy);">¥2,881<span style="font-size:14px;font-weight:400;color:var(--gray);">/月</span></p>
+        <p style="font-size:11px;color:var(--gray);margin-top:4px;line-height:1.6;">燃調・電源調達調整額を含めると<br>差額は変動します</p>
+      </div>
+    </div>
+
+    <p class="compare-note">※上記は東京エリア・40A・400kWh/月の試算例です。実際の料金はご利用状況・エリア・市場価格によって異なります。供給管理単価は税込3.00円/kWh（税抜2.73円/kWh、2026年度）。電源調達調整額は市場価格に連動し上限が設定されていないため、市場高騰時には地域電力会社より高くなる場合があります。別途、再生可能エネルギー賦課金が加算されます。</p>
+  </div>
+</section>
+
+<!-- AREA TABLE -->
+<section>
+  <div class="container">
+    <p class="section-eyebrow">対応エリア・料金一覧</p>
+    <h2 class="section-title">全国9エリアに対応しています</h2>
+    <p class="section-desc">北海道から九州まで、お住まいのエリアでご利用いただけます。</p>
+
+    <!-- TABLE 1: FF plan -->
+    <p style="font-size:13px;font-weight:700;color:var(--orange);margin-bottom:10px;">① FFホームプラン料金単価表（基本料金・従量電力量料金）</p>
+    <p style="font-size:11px;color:#999;margin-bottom:6px;display:none;" class="scroll-hint">← 横にスクロールできます →</p>
+    <div class="area-table-wrap" style="margin-bottom:8px;">
+      <table class="area-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">プラン項目</th>
+            <th>北海道</th>
+            <th>東北</th>
+            <th>東京</th>
+            <th>中部</th>
+            <th>北陸</th>
+            <th>関西</th>
+            <th>中国</th>
+            <th>四国</th>
+            <th>九州</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="area-name" style="text-align:left;">基本料金（円）<br><small style="font-weight:400;color:#888">10A / 1kVAあたり</small></td>
+            <td>209.00</td>
+            <td>184.80</td>
+            <td>155.88</td>
+            <td>160.57</td>
+            <td>302.50</td>
+            <td style="color:var(--green);font-weight:700;">0.00</td>
+            <td style="color:var(--green);font-weight:700;">0.00</td>
+            <td style="color:var(--green);font-weight:700;">0.00</td>
+            <td>158.12</td>
+          </tr>
+          <tr>
+            <td class="area-name" style="text-align:left;">6kVA以上 1kVAあたり（円）</td>
+            <td>362.34</td>
+            <td>332.64</td>
+            <td>280.57</td>
+            <td>289.02</td>
+            <td>272.25</td>
+            <td>447.21</td>
+            <td>447.97</td>
+            <td>397.10</td>
+            <td>284.61</td>
+          </tr>
+          <tr class="highlight-row">
+            <td class="area-name" style="text-align:left;">従量料金（円/kWh）</td>
+            <td><strong>32.00</strong></td>
+            <td><strong>28.90</strong></td>
+            <td><strong>26.80</strong></td>
+            <td><strong>27.90</strong></td>
+            <td><strong>25.00</strong></td>
+            <td><strong>25.50</strong></td>
+            <td><strong>27.50</strong></td>
+            <td><strong>27.50</strong></td>
+            <td><strong>25.90</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="area-caption" style="margin-bottom:32px;">※関西・中国・四国エリアは最低料金が0円となります。</p>
+
+    <!-- TABLE 2: 旧一電比較 -->
+    <p style="font-size:13px;font-weight:700;color:var(--gray);margin-bottom:10px;">②【参考】各地域の電力会社 従量電灯プラン料金（基本料金・段階単価目安）</p>
+    <p style="font-size:11px;color:#999;margin-bottom:6px;display:none;" class="scroll-hint">← 横にスクロールできます →</p>
+    <div class="area-table-wrap">
+      <table class="area-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">比較プラン</th>
+            <th>北海道</th>
+            <th>東北</th>
+            <th>東京</th>
+            <th>中部</th>
+            <th>北陸</th>
+            <th>関西</th>
+            <th>中国</th>
+            <th>四国</th>
+            <th>九州</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="area-name" style="text-align:left;">基本料金（円）<br><small style="font-weight:400;color:#888">10A / 1kVAあたり</small></td>
+            <td>418.00</td>
+            <td>369.60</td>
+            <td>311.75</td>
+            <td>321.14</td>
+            <td>302.50</td>
+            <td>522.58</td>
+            <td>759.68</td>
+            <td>666.89</td>
+            <td>316.24</td>
+          </tr>
+          <tr>
+            <td class="area-name" style="text-align:left;">従量1段目（円/kWh）</td>
+            <td>35.69</td>
+            <td>29.62</td>
+            <td>29.80</td>
+            <td>21.20</td>
+            <td>30.86</td>
+            <td>20.21</td>
+            <td>32.75</td>
+            <td>30.65</td>
+            <td>18.37</td>
+          </tr>
+          <tr>
+            <td class="area-name" style="text-align:left;">従量2段目（円/kWh）</td>
+            <td>41.98</td>
+            <td>36.37</td>
+            <td>36.40</td>
+            <td>25.67</td>
+            <td>34.75</td>
+            <td>25.61</td>
+            <td>39.43</td>
+            <td>37.27</td>
+            <td>23.97</td>
+          </tr>
+          <tr class="highlight-row">
+            <td class="area-name" style="text-align:left;">従量3段目（円/kWh）</td>
+            <td>45.70</td>
+            <td>40.32</td>
+            <td>40.49</td>
+            <td>28.62</td>
+            <td>36.46</td>
+            <td>28.59</td>
+            <td>41.55</td>
+            <td>40.78</td>
+            <td>26.97</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="area-caption">※上記は目安単価です。実際の料金は各電力会社の最新料金表をご確認ください。<br>※別途、燃料費調整額・再生可能エネルギー賦課金が加算されます。</p>
+  </div>
+</section>
+
+<!-- WARNING -->
+<section class="section-bg-warm">
+  <div class="container">
+    <p class="section-eyebrow">重要事項のご案内</p>
+    <h2 class="section-title">ご契約前に必ずご確認ください</h2>
+    <p class="section-desc">FFホームプランは透明性を大切にしています。以下の点を事前にご理解のうえ、お申込みください。</p>
+    <div class="warning-box">
+      <h3>⚠️ 電源調達調整額について</h3>
+      <ul>
+        <li>毎月の電気料金には、一律料金に加えて別途【電源調達調整額】が適用・加算されます。</li>
+        <li><strong>価格調整：</strong>各エリアの市場基準価格とJEPX（日本卸電力取引所）の月間平均価格の差額により調整されます。</li>
+        <li><strong>供給管理単価：</strong>2026年度は一律 <strong>2.73円/kWh</strong> が加算されます（年度ごとに更新）。</li>
+        <li><strong>重要：</strong>市場の電力取引価格が高騰した場合、地域の電力会社より電気料金が高くなることがあります。この調整額には上限が設定されておりません。</li>
+      </ul>
+    </div>
+    <p style="font-size:13px;color:var(--gray);line-height:1.8;">
+      ご不明な点はお気軽にお問い合わせください。担当スタッフが丁寧にご説明いたします。
+    </p>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section>
+  <div class="container">
+    <p class="section-eyebrow">お手続きの流れ</p>
+    <h2 class="section-title">最短2ステップでかんたんに切り替えできます</h2>
+    <p class="section-desc">工事や特別な機器の設置は一切不要。現在の電気を止めることなく切り替えが完了します。</p>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-icon">📞</div>
+        <p class="flow-badge">Step 01</p>
+        <h3>お問い合わせ</h3>
+        <p>お電話またはメールで受付。スタッフが丁寧にご案内します。</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">📋</div>
+        <p class="flow-badge">Step 02</p>
+        <h3>必要書類の提出</h3>
+        <p>WEBまたは書面でご提出いただきます。現在の電気料金明細書をご準備ください。</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-complete">
+        <div class="flow-step-icon">✅</div>
+        <h3>切り替え完了！</h3>
+        <p>工事不要・電気の供給が止まることはありません。自動的に切り替わります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <p class="section-eyebrow" style="color:var(--yellow)">お問い合わせ</p>
+    <h2 class="section-title">まずは、お気軽にご相談ください</h2>
+    <p style="font-size:16px;opacity:0.8;margin-top:8px;">「自分のエリアはいくら？」「今のプランから得になる？」など、何でもお気軽にどうぞ。無料でご案内します。</p>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-card-icon">📞</div>
+        <h3>お電話でのお問い合わせ</h3>
+        <a href="tel:0671774931" class="contact-value">06-7177-4931</a>
+        <p class="contact-hours">受付時間：平日 9:00〜17:00</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">✉️</div>
+        <h3>メールでのお問い合わせ</h3>
+        <a href="mailto:support_enelab@enelab.jp" class="contact-value" style="font-size:15px;">support_enelab@enelab.jp</a>
+        <p class="contact-hours">24時間受付（返信は営業時間内）</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<div class="company-bar">
+  <strong>エネラボ株式会社</strong><br>
+  〒541-0041 大阪府大阪市中央区北浜3-1-22 あいおいニッセイ同和損保淀屋橋ビル9F<br>
+  経済産業省登録小売電気事業者番号 【A0415】
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2024 エネラボ株式会社 All Rights Reserved.</p>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="float-cta">
+  <a href="tel:0671774931" class="float-btn">
+    📞 今すぐ電話する
+  </a>
+</div>
+
+</body>
+</html>
