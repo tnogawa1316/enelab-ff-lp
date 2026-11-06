@@ -914,27 +914,27 @@
   <div class="container">
     <p class="section-eyebrow">料金比較シミュレーション</p>
     <h2 class="section-title">料金の構造を比べてみましょう</h2>
-    <p class="section-desc">東京エリア・従量電灯B（40A）・月間使用量400kWhを例に、料金の内訳を並べました。</p>
+    <p class="section-desc">北海道エリア・契約容量40A・月間使用量400kWhの場合（2026年5〜11月分の実績平均）の料金イメージです。</p>
 
     <div class="compare-wrap">
       <!-- OLD -->
       <div class="compare-card old">
-        <p class="compare-label">従来の従量電灯B</p>
+        <p class="compare-label">北海道電力 従量電灯B</p>
         <div class="compare-row">
           <span class="compare-row-key">基本料金</span>
-          <span class="compare-row-val">¥1,247</span>
+          <span class="compare-row-val">¥2,288</span>
         </div>
         <div class="compare-row">
           <span class="compare-row-key">電力量料金<br><small style="font-size:10px;font-weight:400;color:#888">3段階制・使うほど単価UP</small></span>
-          <span class="compare-row-val">¥14,177</span>
+          <span class="compare-row-val">¥16,441</span>
         </div>
-        <div class="compare-row" style="opacity:0.4;">
-          <span class="compare-row-key">供給管理単価</span>
-          <span class="compare-row-val">—</span>
+        <div class="compare-row">
+          <span class="compare-row-key">燃料費調整額</span>
+          <span class="compare-row-val">▲¥2,123</span>
         </div>
-        <p class="compare-total-label" style="margin-top:16px">小計（税込目安）</p>
-        <p class="compare-total-val">¥15,424</p>
-        <p style="font-size:11px;color:#999;margin-top:6px">＋ 燃料費調整額・再エネ賦課金</p>
+        <p class="compare-total-label" style="margin-top:16px">合計</p>
+        <p class="compare-total-val">¥16,607</p>
+        <p style="font-size:11px;color:#999;margin-top:6px">燃料費調整額込み（再エネ賦課金は別途）</p>
       </div>
 
       <div class="compare-vs">→</div>
@@ -944,19 +944,19 @@
         <p class="compare-label">エネラボ FFホームプラン</p>
         <div class="compare-row">
           <span class="compare-row-key">基本料金</span>
-          <span class="compare-row-val saving">¥623</span>
+          <span class="compare-row-val saving">¥1,144</span>
         </div>
         <div class="compare-row">
           <span class="compare-row-key">電力量料金<br><small style="font-size:10px;font-weight:400;color:#888">一律単価・何kWhでも同じ</small></span>
-          <span class="compare-row-val saving">¥10,720</span>
+          <span class="compare-row-val saving">¥13,320</span>
         </div>
         <div class="compare-row">
-          <span class="compare-row-key">供給管理単価<br><small style="font-size:10px;font-weight:400;color:#888">3.00円/kWh（税込）× 400kWh</small></span>
-          <span class="compare-row-val" style="color:var(--navy);">¥1,200</span>
+          <span class="compare-row-key">電源調達調整額<br><small style="font-size:10px;font-weight:400;color:#888">市場連動（実績平均）</small></span>
+          <span class="compare-row-val" style="color:var(--navy);">¥1,407</span>
         </div>
-        <p class="compare-total-label" style="margin-top:16px">小計（税込目安）</p>
-        <p class="compare-total-val saving">¥12,543</p>
-        <p style="font-size:11px;color:#999;margin-top:6px">＋ 電源調達調整額（市場連動）・再エネ賦課金</p>
+        <p class="compare-total-label" style="margin-top:16px">合計</p>
+        <p class="compare-total-val saving">¥15,871</p>
+        <p style="font-size:11px;color:#999;margin-top:6px">電源調達調整額込み（再エネ賦課金は別途）</p>
       </div>
     </div>
 
@@ -965,19 +965,19 @@
       <div style="flex:1;min-width:200px;">
         <p style="font-size:12px;font-weight:700;color:var(--orange);margin-bottom:8px;">📌 このプランの構造上のポイント</p>
         <ul style="list-style:none;padding:0;font-size:14px;color:var(--navy);line-height:2;">
-          <li>✅ 基本料金は従来の <strong>約半額</strong>（¥1,247 → ¥623）</li>
-          <li>✅ 電力量単価は <strong>一律26.80円/kWh</strong>（段階制なし）</li>
+          <li>✅ 基本料金は北海道電力の <strong>半額</strong>（¥2,288 → ¥1,144）</li>
+          <li>✅ 電力量単価は <strong>一律33.30円/kWh</strong>（段階制なし）</li>
           <li>⚠️ 電源調達調整額は市場価格に連動し、<strong>上限なし</strong></li>
         </ul>
       </div>
       <div style="flex:1;min-width:180px;background:var(--warm-bg);border-radius:10px;padding:14px 16px;">
-        <p style="font-size:12px;color:var(--gray);margin-bottom:4px;">小計ベースの差額（参考）</p>
-        <p style="font-size:26px;font-weight:900;color:var(--navy);">¥2,881<span style="font-size:14px;font-weight:400;color:var(--gray);">/月</span></p>
-        <p style="font-size:11px;color:var(--gray);margin-top:4px;line-height:1.6;">燃調・電源調達調整額を含めると<br>差額は変動します</p>
+        <p style="font-size:12px;color:var(--gray);margin-bottom:4px;">月平均の差額（2026年5〜11月分）</p>
+        <p style="font-size:26px;font-weight:900;color:var(--navy);">約740円<span style="font-size:14px;font-weight:400;color:var(--gray);">おトク</span></p>
+        <p style="font-size:11px;color:var(--gray);margin-top:4px;line-height:1.6;">夏の市場高騰月を含め、<br>7か月すべてでFFがおトクでした</p>
       </div>
     </div>
 
-    <p class="compare-note">※上記は東京エリア・40A・400kWh/月の試算例です。実際の料金はご利用状況・エリア・市場価格によって異なります。供給管理単価は税込3.00円/kWh（税抜2.73円/kWh、2026年度）。電源調達調整額は市場価格に連動し上限が設定されていないため、市場高騰時には地域電力会社より高くなる場合があります。別途、再生可能エネルギー賦課金が加算されます。</p>
+    <p class="compare-note">※2026年5〜11月分の当社試算（JEPX前月エリア平均・燃料費調整単価の実績を使用）。国の電気料金支援および再エネ賦課金を除く。市場価格によっては地域電力より料金が高くなる場合があります。</p>
   </div>
 </section>
 
@@ -989,7 +989,7 @@
     <p class="section-desc">北海道から九州まで、お住まいのエリアでご利用いただけます。</p>
 
     <!-- TABLE 1: FF plan -->
-    <p style="font-size:13px;font-weight:700;color:var(--orange);margin-bottom:10px;">① FFホームプラン料金単価表（基本料金・従量電力量料金）</p>
+    <p style="font-size:13px;font-weight:700;color:var(--orange);margin-bottom:10px;">① FFホームプラン料金表</p>
     <p style="font-size:11px;color:#999;margin-bottom:6px;display:none;" class="scroll-hint">← 横にスクロールできます →</p>
     <div class="area-table-wrap" style="margin-bottom:8px;">
       <table class="area-table">
@@ -1009,48 +1009,48 @@
         </thead>
         <tbody>
           <tr>
-            <td class="area-name" style="text-align:left;">基本料金（円）<br><small style="font-weight:400;color:#888">10A / 1kVAあたり</small></td>
-            <td>209.00</td>
-            <td>184.80</td>
-            <td>155.88</td>
-            <td>160.57</td>
-            <td>302.50</td>
-            <td style="color:var(--green);font-weight:700;">0.00</td>
-            <td style="color:var(--green);font-weight:700;">0.00</td>
-            <td style="color:var(--green);font-weight:700;">0.00</td>
-            <td>158.12</td>
+            <td class="area-name" style="text-align:left;">基本料金（円）<br><small style="font-weight:400;color:#888">10Aあたり</small></td>
+            <td>286.05</td>
+            <td>205.36</td>
+            <td>196.03</td>
+            <td>223.96</td>
+            <td>151.25</td>
+            <td style="color:var(--green);font-weight:700;">0円</td>
+            <td style="color:var(--green);font-weight:700;">0円</td>
+            <td style="color:var(--green);font-weight:700;">0円</td>
+            <td>220.85</td>
           </tr>
           <tr>
-            <td class="area-name" style="text-align:left;">6kVA以上 1kVAあたり（円）</td>
-            <td>362.34</td>
-            <td>332.64</td>
-            <td>280.57</td>
-            <td>289.02</td>
-            <td>272.25</td>
-            <td>447.21</td>
-            <td>447.97</td>
-            <td>397.10</td>
-            <td>284.61</td>
+            <td class="area-name" style="text-align:left;">6kVA超過（円）<br><small style="font-weight:400;color:#888">1kVAあたり</small></td>
+            <td>572.10</td>
+            <td>410.71</td>
+            <td>392.06</td>
+            <td>447.92</td>
+            <td>302.50</td>
+            <td>497.82</td>
+            <td>476.18</td>
+            <td>444.88</td>
+            <td>441.69</td>
           </tr>
           <tr class="highlight-row">
             <td class="area-name" style="text-align:left;">従量料金（円/kWh）</td>
-            <td><strong>32.00</strong></td>
-            <td><strong>28.90</strong></td>
-            <td><strong>26.80</strong></td>
-            <td><strong>27.90</strong></td>
+            <td><strong>33.30</strong></td>
+            <td><strong>30.00</strong></td>
+            <td><strong>27.00</strong></td>
+            <td><strong>28.50</strong></td>
             <td><strong>25.00</strong></td>
-            <td><strong>25.50</strong></td>
-            <td><strong>27.50</strong></td>
-            <td><strong>27.50</strong></td>
-            <td><strong>25.90</strong></td>
+            <td><strong>26.50</strong></td>
+            <td><strong>28.00</strong></td>
+            <td><strong>29.70</strong></td>
+            <td><strong>26.50</strong></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class="area-caption" style="margin-bottom:32px;">※関西・中国・四国エリアは最低料金が0円となります。</p>
+    <p class="area-caption" style="margin-bottom:32px;">※関西・中国・四国エリアは基本料金0円です。</p>
 
     <!-- TABLE 2: 旧一電比較 -->
-    <p style="font-size:13px;font-weight:700;color:var(--gray);margin-bottom:10px;">②【参考】各地域の電力会社 従量電灯プラン料金（基本料金・段階単価目安）</p>
+    <p style="font-size:13px;font-weight:700;color:var(--gray);margin-bottom:10px;">②【参考】地域電力会社の従量電灯（関西・中国・四国は従量電灯A。基本料金欄は最低料金）</p>
     <p style="font-size:11px;color:#999;margin-bottom:6px;display:none;" class="scroll-hint">← 横にスクロールできます →</p>
     <div class="area-table-wrap">
       <table class="area-table">
@@ -1070,52 +1070,52 @@
         </thead>
         <tbody>
           <tr>
-            <td class="area-name" style="text-align:left;">基本料金（円）<br><small style="font-weight:400;color:#888">10A / 1kVAあたり</small></td>
-            <td>418.00</td>
-            <td>369.60</td>
-            <td>311.75</td>
-            <td>321.14</td>
+            <td class="area-name" style="text-align:left;">基本料金（円）<br><small style="font-weight:400;color:#888">10Aあたり／関西・中国・四国は最低料金</small></td>
+            <td>572.10</td>
+            <td>410.71</td>
+            <td>392.06</td>
+            <td>447.92</td>
             <td>302.50</td>
-            <td>522.58</td>
-            <td>759.68</td>
-            <td>666.89</td>
-            <td>316.24</td>
+            <td>763.81</td>
+            <td>983.37</td>
+            <td>953.13</td>
+            <td>441.69</td>
           </tr>
           <tr>
             <td class="area-name" style="text-align:left;">従量1段目（円/kWh）</td>
-            <td>35.69</td>
-            <td>29.62</td>
-            <td>29.80</td>
-            <td>21.20</td>
+            <td>35.77</td>
+            <td>31.01</td>
+            <td>29.85</td>
+            <td>21.25</td>
             <td>30.86</td>
-            <td>20.21</td>
-            <td>32.75</td>
-            <td>30.65</td>
-            <td>18.37</td>
+            <td>20.89</td>
+            <td>33.32</td>
+            <td>31.42</td>
+            <td>18.33</td>
           </tr>
           <tr>
             <td class="area-name" style="text-align:left;">従量2段目（円/kWh）</td>
-            <td>41.98</td>
-            <td>36.37</td>
-            <td>36.40</td>
-            <td>25.67</td>
+            <td>42.06</td>
+            <td>37.76</td>
+            <td>36.45</td>
+            <td>25.73</td>
             <td>34.75</td>
-            <td>25.61</td>
-            <td>39.43</td>
-            <td>37.27</td>
-            <td>23.97</td>
+            <td>26.29</td>
+            <td>40.00</td>
+            <td>38.04</td>
+            <td>23.93</td>
           </tr>
           <tr class="highlight-row">
             <td class="area-name" style="text-align:left;">従量3段目（円/kWh）</td>
-            <td>45.70</td>
-            <td>40.32</td>
-            <td>40.49</td>
-            <td>28.62</td>
+            <td>45.78</td>
+            <td>41.71</td>
+            <td>40.54</td>
+            <td>28.68</td>
             <td>36.46</td>
-            <td>28.59</td>
+            <td>29.27</td>
+            <td>42.12</td>
             <td>41.55</td>
-            <td>40.78</td>
-            <td>26.97</td>
+            <td>26.93</td>
           </tr>
         </tbody>
       </table>
@@ -1133,12 +1133,34 @@
     <div class="warning-box">
       <h3>⚠️ 電源調達調整額について</h3>
       <ul>
-        <li>毎月の電気料金には、一律料金に加えて別途【電源調達調整額】が適用・加算されます。</li>
-        <li><strong>価格調整：</strong>各エリアの市場基準価格とJEPX（日本卸電力取引所）の月間平均価格の差額により調整されます。</li>
-        <li><strong>供給管理単価：</strong>2026年度は一律 <strong>2.73円/kWh</strong> が加算されます（年度ごとに更新）。</li>
-        <li><strong>重要：</strong>市場の電力取引価格が高騰した場合、地域の電力会社より電気料金が高くなることがあります。この調整額には上限が設定されておりません。</li>
+        <li>電気料金には別途【電源調達調整額】が加算されます。</li>
+        <li><strong>① 安定供給維持管理費：</strong>毎月加算（2026年度：<strong>1.82円/kWh（税抜）</strong>）</li>
+        <li><strong>② 市場価格調整：</strong>JEPX前月エリア平均価格が下表の追加調整基準単価を上回れば差額を加算、還元調整基準単価を下回れば差額を還元</li>
+        <li><strong>計算式：</strong>（①＋②）×（1＋消費税率）× 使用電力量 ＝ 電源調達調整額</li>
+        <li><strong>【注意】</strong>市場価格によっては地域電力より料金が高くなる場合があります。電源調達調整額に上限はありません。</li>
       </ul>
     </div>
+    <div class="area-table-wrap" style="margin-bottom:8px;">
+      <table class="area-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">調整基準単価（円/kWh）</th>
+            <th>北海道</th><th>東北</th><th>東京</th><th>中部</th><th>北陸</th><th>関西</th><th>中国</th><th>四国</th><th>九州</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="area-name" style="text-align:left;">追加調整<br><small style="font-weight:400;color:#888">税抜</small></td>
+            <td>13.00</td><td>13.00</td><td>13.00</td><td>13.00</td><td>11.00</td><td>11.00</td><td>11.00</td><td>11.00</td><td>11.00</td>
+          </tr>
+          <tr>
+            <td class="area-name" style="text-align:left;">還元調整<br><small style="font-weight:400;color:#888">税抜</small></td>
+            <td>6.00</td><td>6.00</td><td>6.00</td><td>6.00</td><td>5.00</td><td>5.00</td><td>5.00</td><td>5.00</td><td>5.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="area-caption" style="margin-bottom:24px;">※①安定供給維持管理費は年度ごとに当社H.Pで公表いたします。<br>※毎月の電源調達調整単価は当社H.Pで公表いたします。</p>
     <p style="font-size:13px;color:var(--gray);line-height:1.8;">
       ご不明な点はお気軽にお問い合わせください。担当スタッフが丁寧にご説明いたします。
     </p>
